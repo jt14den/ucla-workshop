@@ -1,0 +1,340 @@
+Welcome UCLA EEB to Software Carpentry Etherpad!
+
+This pad is synchronized as you type, so that everyone viewing this page sees the same text. This allows you to collaborate seamlessly on documents.
+
+Use of this service is restricted to members of the Software Carpentry and Data Carpentry community; this is not for general purpose use (for that, try etherpad.wikimedia.org).
+
+Users are expected to follow our code of conduct: http://software-carpentry.org/conduct.html
+
+All content is publicly available under the Creative Commons Attribution License: https://creativecommons.org/licenses/by/4.0/
+
+-------------
+
+Please complete the pre-workshop assessment survey: 
+
+https://www.surveymonkey.com/r/swc_pre_workshop_v1?workshop_id=2018-04-07-ucla-eeb
+
+This etherpad: http://pad.software-carpentry.org/ucla-eeb
+Workshop website: https://ucla-data-archive.github.io/2018-04-07-ucla-eeb/
+
+sign in 
+name/ email/ dept or org
+Tim Dennis /timdennis@ucla.edu / Library - Data ARchive
+Andy Kleinhesselink arklein@ucla.edu  https://sites.lifesci.ucla.edu/eeb-kraft/
+Bethany Myers/bethanymyers@library.ucla.edu / Biomedical Library
+Maddi Cowen/mcowen@ucla.edu/UCLA EEB
+Paige Zhang /pzhang312@ucla.edu /UCLA EEB
+Hayden Speck/hspeck@ucla.edu/UCLA EEB
+Mary Van Dyke/ mnvandyke@ucla.edu/UCLA EEB
+Mark Juhn /markjuhn@ucla.edu/UCLA EEB
+Marvin Browne/mgbrowne@ucla.edu/UCLA EEB
+Christiane Jacquemetton/cjacquem@ucla.edu/UCLA EEB
+Elliot Blasich / elliotblasich@gmail.com / Disney Data Warehouse
+Karapet Kalfaian/ karapet373@gmail.com/ Disney Data Warehouse
+Suzanne Ou/ousuzanne@gmail.com/UCLA EEB
+
+
+## Data for Workshop
+
+* USE git to grab data (we can update this for tomorrow's data)
+
+1. open your shell terminal client - 
+MacOs - shift+space bar to search, then enter 'terminal' and open 
+Windows - open 'git bash' from the start menu
+
+2. Type the below 
+
+> cd ~/Desktop 
+> git clone  https://github.com/ucla-data-archive/ucla-workshop.git
+
+# =============== Shell basics notes =================================================== 
+
+Navigating your system:
+    whoami - gets current username
+    pwd - print working directory
+    ls - list files in current directory
+    More: http://swcarpentry.github.io/shell-novice/02-filedir/
+    "man" -  shows a help menu for a function
+	   " --help for windows"
+    "cd" - change directory
+    "rm" - remove a file --- ***NOTE THIS IS PERMANENT***
+    "rmdir" - remove a directory
+    "mv" - move or rename a file or directory 
+    "cp" - copy a file or directory
+    "wc" - word/character/line count
+    "cat" - print out the contents of something to the console
+    
+    Some navigation shortcuts: 
+        "./"  - current directory 
+        "../" - up one directory
+        " - " - back to previous directory
+        " ~ " - home directory 
+        "/" - root directory  
+    
+    Piping and redirects:
+        ">" - redirects the output of a function into a file  
+        ">>" - appends the output onto the end of a file
+        " | "  -  this is a "pipe" it directs the output of a function into another function
+        
+        For loops: 
+            basic structure: 
+                 
+           for i in sequence
+		do 
+			function $i
+           done 
+           
+          "function" is the name of the function (or functions) you want to repeat.  "sequence" is the list of files, names, numbers that you want to loop through.  "i" is the variable name that iterates through each of the items in the list in sequence.  
+
+*** User tips:  ******** 
+    use the "tab" key to do autocomplete! 
+    use the up arrow to redo things, this will cycle through previous lines of code!!!
+    In case you get stuck, use CTR-"C" to get out of a function or loop.  Think "C"ancel
+    CTRL-E  navigates to the END of a line 
+    CTRL-A navigates to the START of a line  
+
+
+Best practices for naming:
+    Don't use spaces! 
+    Try camelCase
+    Or snail-case
+    
+    for datafile in *[AB].txt; do; bash goostats $datafile stats-$datafile; done
+
+# =======  R for Reproducible Science Notes ================================ 
+
+Check out https://rstudio.cloud/ if you want to run R&Rstudio in the cloud
+
+Write comments with # -
+# this is a comment
+
+To learn about a function -
+help(exp)
+?exp
+To learn about operators, put them in quotes -
+?"%*%"
+
+Reading the help files: these contain...
+    description of the function
+    usage (simple example of how to use it)
+    arguments --> tells you what inputs the function takes**
+    details about how to use it
+    value --> tells you about the output**
+    references
+    some examples that you can run directly to see how they work!**
+    ** = most helpful
+    
+Important operators:
+	<-        # this assigns the code on the right of the operator to the code on the left
+	=         # similar as above, can do assignment
+	==       # logical operator, tests whether code on the left is the same as code on the right
+	!=        # checks whether two items are NOT equal
+	:          # generates sequences
+
+Best practices for naming in R:
+    don't start variable names with symbols or numbers
+    don't include "-" in the variable name (e.g., my-variable), but "_" is okay (e.g., my_variable)
+    can use camelCase
+    pothole_case: using underscores between words is nice! (don't have to remember capitalization)
+    
+Using packages:
+    R has a lot of default functions, but there are many helpful packages that let you use other great functions
+    install.packages("packageName")   # this installs a package
+    installed.packages()                         # lists installed packages
+    packageName::                               # if you tab complete here, you can see and use the different objects contained in the package
+    library("packageName")                   # loads package into your environment, so you don't have to keep retyping the package name
+    
+Organizing R Projects:
+    could use package called ProjectTemplates to generate directories`
+    make folders for data, scripts (typically called "R", "code", or "source"), figures, output, doc (create these with "mkdir" in terminal)
+    
+Data Structures: (and some examples--not exhaustive list)
+    typeof()       # function that tells you the type of object
+	     logical
+		integer
+		character
+		complex
+		double
+    class()         # function that tells you what the class of the object is
+	     logical
+		character
+		numeric
+		factor (under the hood, items are integers that point to the level of the factor)
+		data.frame
+    str()             # function works similarly to class(), but for dataframes will tell you the class of each column instead of just saying the whole thing is a dataframe
+    BE REALLY CAREFUL SWITCHING FROM FACTOR TO NUMERIC. ALWAYS USE as.character() before you use as.numeric() on factors!!
+
+Lesson 1 - R https://swcarpentry.github.io/r-novice-gapminder/01-rstudio-intro/
+Challenge 1:
+https://swcarpentry.github.io/r-novice-gapminder/01-rstudio-intro/#challenge-1
+
+Challenge 2:
+https://swcarpentry.github.io/r-novice-gapminder/01-rstudio-intro/#challenge-2
+
+Challenge 3: 
+https://swcarpentry.github.io/r-novice-gapminder/01-rstudio-intro/#challenge-3
+
+Challenge 4: 
+https://swcarpentry.github.io/r-novice-gapminder/01-rstudio-intro/#challenge-4
+
+Challenge 5
+https://swcarpentry.github.io/r-novice-gapminder/01-rstudio-intro/#challenge-5
+
+Some good resources  on R projects and packages from the Hadleyverse: 
+    
+    http://r-pkgs.had.co.nz/
+    
+    http://r4ds.had.co.nz/index.html
+    
+    https://github.com/atredennick/usses_water
+
+For more on quoting in R, type ?Quotes in the console: 
+    "Single and double quotes delimit character constants. They can be used interchangeably but double quotes are preferred (and character constants are printed using double quotes), so single quotes are normally only used to delimit character constants containing double quotes."
+    http://stat.ethz.ch/R-manual/R-devel/library/base/html/Quotes.html
+
+Some useful functions for looking at dataframe, which I'll call df:
+    names(df) or colnames(df)  # gives the names of the columns
+    dim(df)                                # gives the dimensions (number of rows, num columns)
+    ncol(df)                                # gives just the number of columns
+    nrow(df)                               # gives just the number of rows
+    str(df)                                  # gives the class of each column in df
+    head(df)                               # gives the first 6 lines of df
+    tail(df)                                  # gives the last 6 lines of df
+
+Indexing & Subsetting with brackets [ ] :
+    df$column1           # this returns the column called column1
+    df[ 1, 3 ]                 # this gives you the element in the dataframe df that is in the first row and third column
+    my_vector[ 3 ]       # this gives you the third value in the vector my_vector (since vectors are 1-dimensional)
+    df$column1[ 1 ]     # gives you the element in the 1st row of the dataframe df in the column called column1, cuz each column of a dataframe is a vector
+    x [ -2 ]                    # omits the 2nd element in the vector x
+    x [ 1:3 ]                  # gives elements 1, 2, and 3 in the vector x
+    x [ c(1, 2, 3) ]         # same as above
+    x [ 'a' ]                   # for a named vector x (where each item has a name), this returns the element that corresponds to 'a'
+    x[ c( TRUE, FALSE, TRUE)]     # returns the 1st and 3rd element of vector x 
+    x[ !c( TRUE, FALSE, TRUE)]    # returns the 2nd element of vector x
+    x[ x >= 7 ]      # returns all items of x that greater than or equal to 7 (because the code x >= 7 generates a vector of TRUE/FALSE values, see above)
+
+Lists - can also subset:
+    my_list[[ 1 ]]        # returns the first element in the first item of a list
+    my_list$a            # returns all items in the item "a" in list my_list
+
+
+# ==================  DAY 2 STUFF # ==================================== 
+
+# -------------- R in the morning -----------
+Introduction --  Sharing code, avoiding errors: 
+    
+    https://www.washingtonpost.com/news/wonk/wp/2016/08/26/an-alarming-number-of-scientific-papers-contain-excel-errors/?utm_term=.ea109e8fe1aa
+    
+    https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5101263/
+    
+    Errors in scientific analysis:  https://f1000researchdata.s3.amazonaws.com/manuscripts/7365/f35922bf-660a-4029-8133-5302e6df71ce_5930_-_david_soergal_v2.pdf?doi=10.12688/f1000research.5930.2
+    
+    https://zookeys.pensoft.net/articles.php?id=3928
+    
+    http://www.cell.com/trends/ecology-evolution/abstract/S0169-5347(15)00290-6
+    
+    
+    GUIDE TO REPRODUCIBLE CODE FOR ECOLOGY AND EVOLUTION (some organization suggestions)
+    https://www.britishecologicalsociety.org/wp-content/uploads/2017/12/guide-to-reproducible-code.pdf
+    
+Functions -- Breaking up your code into chunks! 
+	
+	Nice example from a recent paper: 
+		https://www.nature.com/articles/ncomms14389
+		https://github.com/StefanoAllesina/competitive_network/tree/master/code
+	
+	Helps humans read code 
+	Helps re-use code 
+
+ggplot2 -- the fun stuff! 
+	
+	NBA stats visualization:   https://thedatagame.com.au/2015/09/27/how-to-create-nba-shot-charts-in-r/
+	GGplot map on google mpas: https://github.com/tidyverse/ggplot2/wiki/Crime-in-Downtown-Houston,-Texas-:-Combining-ggplot2-and-Google-Maps
+	Maps of Switzerland:  https://timogrossenbacher.ch/2016/12/beautiful-thematic-maps-with-ggplot2-only/#reproducibility
+	Tidy spatial data for maps:  http://strimas.com/r/tidy-sf/
+
+A newish book on teaching with the TidyVerse is http://moderndive.com/ 
+* fun ggplot2 examples: http://moderndive.com/3-viz.html - uses airline arrival/departure data from NYC 
+
+Defining functions in R:
+    
+    ###### here is an example of writing a function definition
+    name_of_function <- function( argument1, argument2,  howeverManyArgumentsYouWant) {
+        outputVariable <- code_that_does_something_using_your_arguments
+        return( outputVariable )
+    }    
+    
+    # now you can call this function as follows (both of the following give the same result):
+    name_of_function( x, y, z)
+    name_of_function( argument1 = x, argument 2 = y, howeverManyArgumentsYouWant = z)
+    ######    
+       
+    the "arguments" given are inputs to the function that are used inside the function
+    return( )  will output the final information calculated by the function you wrote; otherwise the function will do calculations but won't report the answer
+    **it's okay to not return an output if you want your function just to print something and not assign output to a variable to be used later**
+    when you "run" your function definition, it saves that function to the object you indicate (e.g., name_of_function)
+    after that, you can use the function like any other R function, with arguments inside the parentheses
+    if you just run name_of_function it will print out the function definition
+    not covered in today's workshop, but there's info in the Software Carpentry website about checking conditions in your functions--this is good to do
+
+Plotting data in R with ggplot2:
+    
+    General plotting tips: draw what you want by hand first! Think about what in your dataframe corresponds to the x and y axis of a plot
+    ggplot( data, aes( x, y ))      ## this creates a basic plot in the plotting window (set up axes based on x and y), but doesn't include points
+    for each additional feature you want to add to your plot, add that function (literally use "+" to add the function)
+    geom_point( )                     ## adds points to your plot! look at other "geom_" functions, can add several, sometimes need other aes objects
+
+Tidy data (helpful packages: dplyr and tidyr):
+    %>%        ## this is the R version of a pipe
+    select( )     ## select columns from a dataframe by their name
+    filter( )       ## select rows from a dataframe if they match a condition
+    mutate( )   ## makes a new column
+    spread( )    ## makes wide dataframes
+    gather( )    ## makes long dataframes
+    HELPFUL CHEATSHEET FOR THESE FUNCTIONS:
+    https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf
+    
+    
+The scripts Andy created in the class are in the github data repository: 
+    
+	https://github.com/ucla-data-archive/ucla-workshop
+    
+## ========= Git in the Afternoon ======================================== 
+    
+git config --global user.name "k8hertweck"
+git config --global user.email "k8hertweck@gmail.com"
+git config --global core.editor "nano -w"
+
+ *** Git commit messages, tips for writing git commit messages: 
+    https://chris.beams.io/posts/git-commit/
+    
+*** Git for ages for and up:  https://www.youtube.com/watch?v=3m7BgIvC-uQ
+
+** .gitignore is very useful.  I often want to ignore all the .png, .pdf and .jpg files created by R scripts 
+
+
+Objectives: collaborate pushing to common repo
+	1. Pair up students
+	1. in your planets repo on GitHub, click settings, select collaborators, enter partner's username
+	1. partner should cd to another directory (Desktop) and make copy of partner's repo: git clone https://github.com/vlad/planets.git (replace vlad with your partner's name)
+	1. collaborator should make changes, add, commit, git push origin master
+	1. original owner can pull changes onto their machine
+	1. 
+
+## conflicts 
+
+	1. each partner adds a (different) line to mars.txt, adds, commits, pushes to github
+	1. the second push will fail
+	1. failed pusher should:
+	1. git pull origin master
+	1. reconcile change and remove markers (you can accept the remote or local changes or add something else)
+	1. git add, status, commit, push
+	1. other partner can pull without additional changes needing to take place
+
+Collaboration Exercise
+	1. collaboration tool: https://github.com/jt14den/git-collaboration
+	1. students can fork the repo
+	1. explain forking: making own copy of a repo that isn't owned by you
+	1. make changes to one of the countries
+	1. submit pull request to original owner
