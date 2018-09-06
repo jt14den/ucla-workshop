@@ -27,7 +27,7 @@ version control is much better for this than this:
   <p>"Piled Higher and Deeper" by Jorge Cham, http://www.phdcomics.com</p>
 </div>
 
-###Local Repo
+### Local Repo
 Git will keep track of the _changes_ to your files, rather than keep multiple copies of the files.
 It saves the first version, then keeps track of subsequent changes to that version.
 This makes it efficient and speedy.
@@ -252,15 +252,18 @@ This is just to remind you what changes you made.
 Informative commit messages will serve you well someday, so make a habit of never committing changes without at least a full sentence description._
 
 __ADVICE: Commit often__
+
 _In the same way that it is wise to often save a document that you are working on, so too is it wise to save numerous revisions of your code.
 More frequent commits increase the granularity of your undo button._
 
 __ADVICE: Good commit messages__
+
 [because it's important!](http://www.commitlogsfromlastnight.com/)
 _There are no hard and fast rules, but good commits are atomic: they are the smallest change that remain meaningful.
 A good commit message usually contains a one-line description followed by a longer explanation if necessary.
 For code, it's useful to commit changes that can be reviewed by someone in under an hour.
 Or it can be useful to commit changes that "go together" - for example, one paragraph of a manuscript, or each new function added to your script.
+
 For example, if you work on your code all day long (add 200 lines of code, including 5 new functions and write 7 pages of your new manuscript including deleting an old paragraph), and at 3:00 you make a fatal error or deletion, but you didn't commit once, then you will have a hard time recreating the version you are looking for - because it doesn't exist!_
 
 
