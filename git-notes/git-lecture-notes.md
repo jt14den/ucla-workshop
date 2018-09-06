@@ -27,14 +27,15 @@ version control is much better for this than this:
   <p>"Piled Higher and Deeper" by Jorge Cham, http://www.phdcomics.com</p>
 </div>
 
-### Local Repo
+## Local Repo
+
 Git will keep track of the _changes_ to your files, rather than keep multiple copies of the files.
 It saves the first version, then keeps track of subsequent changes to that version.
 This makes it efficient and speedy.
 It can recreate any version (go back in time) by adding up all the changes
 to get to where you want to be.
 
-### Setting Up
+## Setting Up
 
 The first time we use Git on a new machine,
 we need to configure a few things.
@@ -81,11 +82,16 @@ the flag `--global` tells Git to use the settings for every project on this mach
 > $ git config --global --unset https.proxy
 > ~~~
 
-### Creating a Repository
+~~~
+$ git config -h
+$ git config --help
+~~~
 
-Once Git is configured,
+## Creating a Repository
+
+* Once Git is configured,
 we can start using it.
-Let's create a directory for our work:
+* Let's create a directory for our work:
 
 ~~~ {.bash}
 $ mkdir planets
@@ -236,7 +242,7 @@ $ git status
 
 _-- highlight the "Untracked files" section and that git tells you how to add a file to the next commit._
 
-Git now knows that it's supposed to keep track of `mars.txt`,
+* Git now knows that it's supposed to keep track of `mars.txt`,
 but it hasn't yet recorded any changes for posterity as a commit.
 
 _Tell git _"Hey, we want you to remember the way that the files look right now"_._
