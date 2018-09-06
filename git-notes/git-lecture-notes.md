@@ -123,12 +123,18 @@ $ ls -a
 .	..	.git
 ~~~
 
-Git stores information about the project in this special sub-directory.
-If we ever delete it,
-we will lose the project's history.
+> ## Look around inside the `.git` folder
+>~~~
+> cd .git 
+>~~~
 
-We can check that everything is set up correctly
-by asking Git to tell us the status of our project:
+Explore `.git`
+
+* Git stores information about the project in this special sub-directory.
+* If we ever delete it, we will lose the project's history.
+
+* We can check that everything is set up correctly
+* by asking Git to tell us the status of our project:
 
 ~~~ {.bash}
 $ git status
