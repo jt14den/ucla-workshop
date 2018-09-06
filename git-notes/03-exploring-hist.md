@@ -7,6 +7,17 @@
 
 ~~~
 $ nano mars.txt
+~~~
+add:
+~~~
+
+~~~
+An ill-considered change
+~~~
+
+<kbd>control</kbd> <kbd>x</kbd>  to exit
+
+~~~
 $ cat mars.txt
 ~~~
 {: .language-bash}
