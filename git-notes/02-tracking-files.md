@@ -98,6 +98,28 @@ $ git status
 but it hasn't yet recorded any changes for posterity as a commit.
 
 * Let's tell git _"Hey, we want you to remember the way that the files look right now"_.
+* To commit to our repo, we need to run one more command:
+
+~~~ {.bash}
+$ git commit -m "Starting to think about Mars"
+~~~
+
+~~~ {.output}
+[master (root-commit) f22b25e] Starting to think about Mars
+ 1 file changed, 1 insertion(+)
+ create mode 100644 mars.txt
+~~~
+
+* When we run `git commit`, Git takes everything we have told it to save by using `git add` and stores a copy permanently inside the special `.git` directory.
+* This permanent copy is called a [revision](../../gloss.html#revision) and its short identifier is `f22b25e`.
+(Your revision may have another identifier.)
+
+* We use the `-m` flag (for "message") to record a comment that will help us remember later on what we did and why.
+* If we just run `git commit` without the `-m` option, Git will launch `nano` (or whatever other editor we configured at the start) so that we can write a longer message.
+* **You must have a commit message**. It's good practice and git won't let you commit without one.
+
+* NOTE: If you only want to add one file, use `git commit filename.txt -m "message"`
+`git commit -am "message"` will add ALL tracked files.
 
 **On the white board draw a box representing the project history.** 
 
@@ -111,50 +133,19 @@ but it hasn't yet recorded any changes for posterity as a commit.
 
 __ADVICE: Commit often__
 
-_In the same way that it is wise to often save a document that you are working on, so too is it wise to save numerous revisions of your code.
-More frequent commits increase the granularity of your undo button._
+* In the same way that it is wise to often save a document that you are working on, so too is it wise to save numerous revisions of your code.
+* More frequent commits increase the granularity of your undo button. If you commit every 1, you have an hour undo button, if you commit every day, you'll have a day's long undo button. 
+* There are no hard and fast rules, but good commits are atomic: they are the smallest change that remain meaningful.
+* A good commit message usually contains a one-line description followed by a longer explanation if necessary.
 
 __ADVICE: Good commit messages__
 
 [because it's important!](http://www.commitlogsfromlastnight.com/)
-_There are no hard and fast rules, but good commits are atomic: they are the smallest change that remain meaningful.
-A good commit message usually contains a one-line description followed by a longer explanation if necessary.
-For code, it's useful to commit changes that can be reviewed by someone in under an hour.
-Or it can be useful to commit changes that "go together" - for example, one paragraph of a manuscript, or each new function added to your script.
 
-For example, if you work on your code all day long (add 200 lines of code, including 5 new functions and write 7 pages of your new manuscript including deleting an old paragraph), and at 3:00 you make a fatal error or deletion, but you didn't commit once, then you will have a hard time recreating the version you are looking for - because it doesn't exist!_
+* For code, it's useful to commit changes that can be reviewed by someone in under an hour.
+* Or it can be useful to commit changes that "go together" - for example, one paragraph of a manuscript, or each new function added to your script.
+* For example, if you work on your code all day long (add 200 lines of code, including 5 new functions and write 7 pages of your new manuscript including deleting an old paragraph), and at 3:00 you make a fatal error or deletion, but you didn't commit once, then you will have a hard time recreating the version you are looking for - because it doesn't exist!
 
-
-To get it to do that,
-we need to run one more command:
-
-~~~ {.bash}
-$ git commit -m "Starting to think about Mars"
-~~~
-
-~~~ {.output}
-[master (root-commit) f22b25e] Starting to think about Mars
- 1 file changed, 1 insertion(+)
- create mode 100644 mars.txt
-~~~
-
-When we run `git commit`,
-Git takes everything we have told it to save by using `git add`
-and stores a copy permanently inside the special `.git` directory.
-This permanent copy is called a [revision](../../gloss.html#revision)
-and its short identifier is `f22b25e`.
-(Your revision may have another identifier.)
-
-We use the `-m` flag (for "message")
-to record a comment that will help us remember later on what we did and why.
-If we just run `git commit` without the `-m` option,
-Git will launch `nano` (or whatever other editor we configured at the start)
-so that we can write a longer message.
-
-__ADVICE:__ _You must have a commit message. It's good practice and git won't let you commit without one._
-
-_If you only want to add one file, use `git commit filename.txt -m "message"
-`git commit -am "message` will add ALL tracked files._
 
 If we run `git status` now:
 
@@ -167,10 +158,10 @@ $ git status
 nothing to commit, working directory clean
 ~~~
 
-it tells us everything is up to date.
-If we want to know what we've done recently,
-we can ask Git to show us the project's history using `git log`.
-You can see all the changes you have ever made using this command:
+* it tells us everything is up to date.
+* If we want to know what we've done recently, we can ask Git to show us the project's history using `git log`.
+
+* You can see all the changes you have ever made using this command:
 
 ~~~ {.bash}
 $ git log
@@ -184,10 +175,8 @@ Date:   Thu Aug 22 09:51:46 2013 -0400
     Starting to think about Mars
 ~~~
 
-`git log` lists all revisions  made to a repository in reverse chronological order.
-The listing for each revision includes
-the revision's full identifier
-(which starts with the same characters as
+* `git log` lists all revisions  made to a repository in **reverse chronological order**.
+* The listing for each revision includes the revision's full identifier (which starts with the same characters as
 the short identifier printed by the `git commit` command earlier),
 the revision's author,
 when it was created,
@@ -204,11 +193,19 @@ and the log message Git was given when the revision was created.
 ### Changing a File
 
 Now suppose Dracula adds more information to the file.
+
 (Again, we'll edit with `nano` and then `cat` the file to show its contents;
 you may use a different editor, and don't need to `cat`.)
 
 ~~~ {.bash}
 $ nano mars.txt
+~~~
+add: 
+~~~
+The two moons may be a problem for Wolfman
+~~~
+
+~~~
 $ cat mars.txt
 ~~~
 
@@ -217,7 +214,7 @@ Cold and dry, but everything is my favorite color
 The two moons may be a problem for Wolfman
 ~~~
 
-When we run `git status` now,
+* When we run `git status` now,
 it tells us that a file it already knows about has been modified:
 
 ~~~ {.bash}
@@ -235,14 +232,10 @@ $ git status
 no changes added to commit (use "git add" and/or "git commit -a")
 ~~~
 
-The last line is the key phrase:
-"no changes added to commit".
-We have changed this file,
-but we haven't told Git we will want to save those changes
-(which we do with `git add`)
-much less actually saved them.
-Let's double-check our work using `git diff`,
-which shows us the differences between
+* The last line is the key phrase: "no changes added to commit".
+* We have changed this file, but we haven't told Git we will want to save those changes
+(which we do with `git add`) much less actually saved them.
+* Let's double-check our work using `git diff`, which shows us the differences between
 the current state of the file
 and the most recently saved version:
 
@@ -260,10 +253,9 @@ index df0654a..315bf3a 100644
 +The two moons may be a problem for Wolfman
 ~~~
 
-The output is cryptic because
-it is actually a series of commands for tools like editors and `patch`
+* The output is cryptic because it is actually a series of commands for tools like editors and `patch`
 telling them how to reconstruct one file given the other.
-If we can break it down into pieces:
+* If we can break it down into pieces:
 
 1.  The first line tells us that Git is producing output similar to the Unix `diff` command
     comparing the old and new versions of the file.
@@ -275,7 +267,7 @@ If we can break it down into pieces:
     In particular,
     the `+` markers in the first column show where we are adding lines.
 
-Let's commit our change:
+* Let's commit our change:
 
 ~~~ {.bash}
 $ git commit -m "Concerns about Mars's moons on my furry friend"
@@ -292,8 +284,9 @@ $ git commit -m "Concerns about Mars's moons on my furry friend"
 no changes added to commit (use "git add" and/or "git commit -a")
 ~~~
 
-Whoops:
-Git won't commit because we didn't use `git add` first.
+* Whoops:
+* Git won't commit because we didn't use `git add` first.
+
 Let's fix that:
 
 ~~~ {.bash}
@@ -306,35 +299,35 @@ $ git commit -m "Concerns about Mars's moons on my furry friend"
  1 file changed, 1 insertion(+)
 ~~~
 
-Git insists that we add files to the set we want to commit
+* Git insists that we add files to the **set** we want to commit
 before actually committing anything
 because we may not want to commit everything at once.
-For example,
-suppose we're adding a few citations to our supervisor's work
-to our thesis.
-We might want to commit those additions,
-and the corresponding addition to the bibliography,
-but *not* commit the work we're doing on the conclusion
-(which we haven't finished yet).
+* This allows us to commit our changes in stages and capture changes in logical portions rather than only large batches.
+*  For example, suppose we’re adding a few citations to relevant research to our thesis. 
+* We might want to commit those additions, and the corresponding bibliography entries, but not commit some of our work drafting the conclusion (which we haven’t finished yet).
 
-To allow for this,
+* To allow for this,
 Git has a special staging area
 where it keeps track of things that have been added to
 the current [change set](../../gloss.html#change-set)
 but not yet committed.
-`git add` puts things in this area,
-and `git commit` then copies them to long-term storage (as a commit):
+* `git add` puts things in this area, and `git commit` then copies them to long-term storage (as a commit):
 
-<img src="img/git-staging-area.svg" alt="The Git Staging Area" />
+<img src="https://git-scm.com/book/en/v2/images/areas.png" alt="The Git Staging Area" />
 
-Let's watch as our changes to a file move from our editor
-to the staging area
+* Let's watch as our changes to a file move from our editor to the staging area
 and into long-term storage.
-First,
+* First,
 we'll add another line to the file:
 
 ~~~ {.bash}
 $ nano mars.txt
+~~~
+add:
+~~~
+But the Mummy will appreciate the lack of humidity
+~~~
+~~~
 $ cat mars.txt
 ~~~
 
@@ -359,10 +352,9 @@ index 315bf3a..b36abfd 100644
 +But the Mummy will appreciate the lack of humidity
 ~~~
 
-So far, so good:
-we've added one line to the end of the file
+* So far, so good: we've added one line to the end of the file
 (shown with a `+` in the first column).
-Now let's put that change in the staging area
+* Now let's put that change in the staging area
 and see what `git diff` reports:
 
 ~~~ {.bash}
@@ -370,12 +362,10 @@ $ git add mars.txt
 $ git diff
 ~~~
 
-There is no output:
-as far as Git can tell,
+* There is no output: as far as Git can tell,
 there's no difference between what it's been asked to save permanently
 and what's currently in the directory.
-However,
-if we do this:
+* However, if we do this:
 
 ~~~ {.bash}
 $ git diff --staged
