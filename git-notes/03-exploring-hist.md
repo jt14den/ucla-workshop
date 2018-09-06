@@ -8,8 +8,8 @@
 ~~~
 $ nano mars.txt
 ~~~
+
 add:
-~~~
 
 ~~~
 An ill-considered change
@@ -28,6 +28,7 @@ The two moons may be a problem for Wolfman
 But the Mummy will appreciate the lack of humidity
 An ill-considered change
 ~~~
+
 {: .output}
 
 Now, let's see what we get.
