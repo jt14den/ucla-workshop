@@ -441,6 +441,8 @@ _Useful `git log` flags:_
 * --since=X.minutes/hours/days/weeks/months/years or YY-MM-DD-HH:MM (for specific time frames)
 * --author=<pattern> (look for specific people)
 
+<https://swcarpentry.github.io/git-novice/04-changes/index.html#choosing-a-commit-message>
+
 To recap, when we want to add changes to our repository,
 we first need to add the changed files to the staging area
 (`git add`) and then commit the staged changes to the
