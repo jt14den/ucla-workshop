@@ -283,3 +283,6 @@ moving backward and forward in time becomes much easier.
 * Or for your code, if you store functions in files separate from code that executes them, or makes figures,
 you can go back in time to find or retrieve specific chunks.
 
+### Challenges 
+
+<https://swcarpentry.github.io/git-novice/05-history/index.html#recovering-older-versions-of-a-file>
