@@ -6,9 +6,9 @@
 1. In your planets repo on GitHub, click settings, select collaborators, enter partner's git username
 1. Partner should `cd` to another directory (Desktop) and make copy of partner's repo: 
    * `cd ~/Desktop`
-~~~
-  git clone https://github.com/vlad/planets.git (replace vlad with your partner's name)
-~~~
+  ~~~
+   git clone https://github.com/vlad/planets.git (replace vlad with your partner's name)
+  ~~~
 1. collaborator should make changes, add, commit, git push origin master
 1. original owner can pull changes onto their machine
 
