@@ -1,8 +1,44 @@
+
 ### Exploring History
 
-If we want to see what we changed when,
-we use `git diff` again,
-but refer to old versions
+* As we saw in the previous lesson, we can refer to commits by their identifiers. You can **refer to the most recent commit** of the working directory by using the identifier **HEAD**.
+
+* We’ve been adding one line at a time to mars.txt, so it’s easy to track our progress by looking, so let’s do that using our HEADs. Before we start, let’s make a change to mars.txt.
+
+~~~
+$ nano mars.txt
+$ cat mars.txt
+~~~
+{: .language-bash}
+
+~~~
+Cold and dry, but everything is my favorite color
+The two moons may be a problem for Wolfman
+But the Mummy will appreciate the lack of humidity
+An ill-considered change
+~~~
+{: .output}
+
+Now, let's see what we get.
+
+~~~
+$ git diff HEAD mars.txt
+~~~
+{: .language-bash}
+
+~~~
+diff --git a/mars.txt b/mars.txt
+index b36abfd..0848c8d 100644
+--- a/mars.txt
++++ b/mars.txt
+@@ -1,3 +1,4 @@
+ Cold and dry, but everything is my favorite color
+ The two moons may be a problem for Wolfman
+ But the Mummy will appreciate the lack of humidity
++An ill-considered change.
+~~~
+{: .output}
+* If we want to see what we changed when, we use `git diff` again, but refer to old versions
 using the notation `HEAD~1`, `HEAD~2`, and so on:
 
 ~~~ {.bash}
