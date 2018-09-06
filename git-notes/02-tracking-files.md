@@ -446,5 +446,5 @@ we first need to add the changed files to the staging area
 (`git add`) and then commit the staged changes to the
 repository (`git commit`):
 
-<img src="img/git-committing.svg" alt="The Git Commit Workflow" />
+<img src="https://swcarpentry.github.io/git-novice/fig/git-committing.svg" alt="The Git Commit Workflow" />
 
