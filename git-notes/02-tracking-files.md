@@ -54,20 +54,23 @@ $ git status
 nothing added to commit but untracked files present (use "git add" to track)
 ~~~
 
-The "untracked files" message means that there's a file in the directory
-that Git isn't keeping track of.
+__highlight the "Untracked files" section and that git tells you how to add a file to the next commit.__
 
-_Now, lets add files that are inside:
-On the white board draw a box representing the staging area (index) and
-explain that this is where we set up the next snapshot of our project.
-Like a photographer in a studio, we're putting together a shot
-before we actually snap the picture.
-Connect the working area box and the staging box with 'git add'._
+* The "untracked files" message means that there's a file in the directory that Git isn't keeping track of.
 
-_`git add .` This adds __all__ the files in our repository.
-But sometimes we only want to add a single file at a time._
+**Now, lets add files that are inside:**
+1. On the white board draw a box representing the **staging area** (index) and explain that this is where we set up the next snapshot of our project.
+1. Like a **photographer in a studio**, we're putting together a shot before we actually snap the picture.
+1. Connect the working area box and the staging box with 'git add'._
 
-We can tell Git that it should do so using `git add`:
+* Note: we can use `git add .` - This adds __all__ the files in our repository.
+* But sometimes we only want to add a single file at a time.
+
+>## why would you want to add individual files or a select group files and not all? 
+> * batching connected work - say you are working on multiple files, but only two are part of a unit-of-work
+> * you can add those files to stage for commit together
+
+* We can tell Git that it should do so using `git add`:
 
 ~~~ {.bash}
 $ git add mars.txt
@@ -91,23 +94,20 @@ $ git status
 #
 ~~~
 
-
-_-- highlight the "Untracked files" section and that git tells you how to add a file to the next commit._
-
 * Git now knows that it's supposed to keep track of `mars.txt`,
 but it hasn't yet recorded any changes for posterity as a commit.
 
-_Tell git _"Hey, we want you to remember the way that the files look right now"_._
+* Let's tell git _"Hey, we want you to remember the way that the files look right now"_.
 
-_On the white board draw a box representing the project history.
-Once we take a snapshot of the project that snapshot becomes a permanent reference point in the project's history that we can always go back to.
-The history is like a photo album of changes, and each snapshot has a time stamp, the name of the photographer, and a description.
-Connect the staging area to the history with `git commit -m "message"`.
-In order to save a snapshot of the current state (revision) of the repository, we use the commit command.
-This command is always associated with a message describing the changes since the last commit and indicating their purpose.
-Git will ask you to add a commit message.
-This is just to remind you what changes you made.
-Informative commit messages will serve you well someday, so make a habit of never committing changes without at least a full sentence description._
+**On the white board draw a box representing the project history.** 
+
+1. Once we take a snapshot of the project that snapshot becomes a permanent reference point in the project's history that we can always go back to.
+2. The history is like a **photo album of changes**, and each snapshot has a time stamp, the name of the photographer, and a description.
+3. Connect the staging area to the history with `git commit -m "message"`.
+4. In order to save a snapshot of the current state (revision) of the repository, we use the commit command.
+5. This command is always associated with a message describing the changes since the last commit and indicating their purpose.
+6. Git will ask you to add a commit message. This is just to remind you what changes you made.
+7. Informative commit messages will serve you well someday, so make a habit of never committing changes without at least a full sentence description.
 
 __ADVICE: Commit often__
 
