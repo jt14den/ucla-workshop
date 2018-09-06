@@ -124,8 +124,8 @@ $ git commit -m "Starting to think about Mars"
 **On the white board draw a box representing the project history.** 
 
 1. Once we take a snapshot of the project that snapshot becomes a permanent reference point in the project's history that we can always go back to.
-2. The history is like a **photo album of changes**, and each snapshot has a time stamp, the name of the photographer, and a description.
-3. Connect the staging area to the history with `git commit -m "message"`.
+2. The history is like a **photo album of changes**, and each snapshot has a **time stamp**, the **name of the photographer**, and a **description**.
+3. Connect the staging area to the history with **`git commit -m "message"`**.
 4. In order to save a snapshot of the current state (revision) of the repository, we use the commit command.
 5. This command is always associated with a message describing the changes since the last commit and indicating their purpose.
 6. Git will ask you to add a commit message. This is just to remind you what changes you made.
@@ -144,7 +144,9 @@ __ADVICE: Good commit messages__
 
 * For code, it's useful to commit changes that can be reviewed by someone in under an hour.
 * Or it can be useful to commit changes that "go together" - for example, one paragraph of a manuscript, or each new function added to your script.
-* For example, if you work on your code all day long (add 200 lines of code, including 5 new functions and write 7 pages of your new manuscript including deleting an old paragraph), and at 3:00 you make a fatal error or deletion, but you didn't commit once, then you will have a hard time recreating the version you are looking for - because it doesn't exist!
+* For example:
+  * if you work on your code all day long (add 200 lines of code, including 5 new functions and write 7 pages of your new manuscript including deleting an old paragraph), 
+  * and at 3:00 you make a fatal error or deletion, but you didn't commit once, then you will have a hard time recreating the version you are looking for - because it doesn't exist!
 
 
 If we run `git status` now:
@@ -158,7 +160,7 @@ $ git status
 nothing to commit, working directory clean
 ~~~
 
-* it tells us everything is up to date.
+* it tells us everything is up to date. this is great!
 * If we want to know what we've done recently, we can ask Git to show us the project's history using `git log`.
 
 * You can see all the changes you have ever made using this command:
@@ -253,7 +255,7 @@ index df0654a..315bf3a 100644
 +The two moons may be a problem for Wolfman
 ~~~
 
-* The output is cryptic because it is actually a series of commands for tools like editors and `patch`
+* The output is cryptic because it is actually a **series of commands for tools like editors and `patch`**
 telling them how to reconstruct one file given the other.
 * If we can break it down into pieces:
 
@@ -303,6 +305,7 @@ $ git commit -m "Concerns about Mars's moons on my furry friend"
 before actually committing anything
 because we may not want to commit everything at once.
 * This allows us to commit our changes in stages and capture changes in logical portions rather than only large batches.
+* Think about the size of the <kbd>undo</kbd> button
 *  For example, suppose we’re adding a few citations to relevant research to our thesis. 
 * We might want to commit those additions, and the corresponding bibliography entries, but not commit some of our work drafting the conclusion (which we haven’t finished yet).
 
