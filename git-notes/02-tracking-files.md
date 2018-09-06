@@ -453,3 +453,4 @@ repository (`git commit`):
 
 <img src="https://swcarpentry.github.io/git-novice/fig/git-committing.svg" alt="The Git Commit Workflow" />
 
+[next lesson](03-exploring-hist.md)
