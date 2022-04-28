@@ -108,15 +108,27 @@ $ ls -a
 .	..	.git
 ~~~
 
-> ## Look around inside the `.git` folder
->~~~
-> cd .git 
->~~~
+Next, we will change the default branch to be called main. This might be the default branch depending on your settings and version of git. See the setup episode for more information on this change.
+
+~~~
+$ git checkout -b main
+~~~
+
+
+## Look around inside the `.git` folder
+~~~
+ cd .git 
+~~~
 
 Explore `.git`
 
 * Git stores information about the project in this special sub-directory.
 * If we ever delete it, we will lose the project's history.
+* Let's go back up to our working directory: 
+
+~~~
+cd ..
+~~~
 
 * We can check that everything is set up correctly
 * by asking Git to tell us the status of our project:
@@ -133,5 +145,5 @@ $ git status
 nothing to commit (create/copy files and use "git add" to track)
 ~~~
 
-_On the white board draw a box representing the working area and
- explain that this is where you work and make changes._
+** On the white board draw a box representing the working area and
+ explain that this is where you work and make changes.** 
