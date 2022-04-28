@@ -1,3 +1,11 @@
+* First, let’s create a directory in Desktop folder for our work and then move into that directory:
+
+~~~
+$ cd ~/Desktop
+$ mkdir planets
+$ cd planets
+~~~
+
 ## Tracking Changes to Files
 
 * Let's create a file called `mars.txt` that contains some notes
