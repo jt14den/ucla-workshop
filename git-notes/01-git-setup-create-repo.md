@@ -39,6 +39,13 @@ we're telling Git:
 *   what our favorite text editor is, and
 *   that we want to use these settings globally (i.e., for every project),
 
+* Git (2.28+) allows configuration of the name of the branch created when you initialize any new repository. 
+* Let's use that feature to set it to main so it matches the cloud service he will eventually use.
+
+~~~
+$ git config --global init.defaultBranch main
+~~~
+
 The four commands above only need to be run once:
 the flag `--global` tells Git to use the settings for every project on this machine.
 
@@ -63,6 +70,7 @@ the flag `--global` tells Git to use the settings for every project on this mach
 $ git config -h
 $ git config --help
 ~~~
+
 
 ## Creating a Repository
 
